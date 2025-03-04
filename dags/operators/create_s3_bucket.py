@@ -2,7 +2,7 @@ from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 
 def create_s3_bucket(**kwargs):
     s3_hook = S3Hook(aws_conn_id="my_s3_conn")  # Use your connection ID
-    bucket_name = kwargs.get('bucket-name')  # Replace with a unique name
+    bucket_name = kwargs.get('bucket_name')  # Replace with a unique name
 
     try:
         s3_hook.create_bucket(bucket_name=bucket_name, region_name=kwargs.get('region'))  # Region is important!

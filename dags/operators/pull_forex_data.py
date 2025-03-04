@@ -12,7 +12,8 @@ def pull_forex_data(start_date,
     multiplier,
     timespan,
     formatter,
-    save_path,
+    bucket_name,
+    # save_path,
     ti) -> None:
     """
     collects forex data from the Polygon API and stores the values in a dataframe
@@ -93,9 +94,9 @@ def pull_forex_data(start_date,
     # will return usd_php
     ticker_name = "_".join([ticker_name[i:i + chunk_size].lower() for i in range(0, str_len, chunk_size)])
 
-    # save dataframe to .csv. Note that save path is '/usr/local/airflow/include/data'
-    # file path of saved data would be '/usr/local/airflow/include/data/usd_php_forex_4hour.csv'
-    file_path = os.path.join(save_path, f"{ticker_name}_forex_{multiplier}{timespan}.csv")
+    # save dataframe to .csv. Note that save path is '/opt/airflow/include/data/'
+    # file path of saved data would be '/opt/airflow/include/data/usd_php_forex_4hour.csv'
+    file_path = os.path.join(f"s3://{bucket_name}", f"{ticker_name}_forex_{multiplier}{timespan}.csv")
     forex_data.to_csv(file_path)
 
     # allow task to return file path of the saved .csv
