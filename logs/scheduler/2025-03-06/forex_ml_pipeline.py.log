@@ -2415,3 +2415,45 @@
 [2025-03-06T07:18:31.986+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:18:31.986+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-03-06T07:18:32.005+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:18:32.005+0000] {dag.py:4180} INFO - Setting next_dagrun for forex_ml_pipeline to 2025-03-02 12:00:00+00:00, run_after=2025-03-09 12:00:00+00:00
 [2025-03-06T07:18:32.033+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/forex_ml_pipeline.py took 0.573 seconds
+[2025-03-06T07:41:00.969+0000] {processor.py:186} INFO - Started process (PID=190) to work on /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:41:00.970+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/forex_ml_pipeline.py for tasks to queue
+[2025-03-06T07:41:00.972+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:41:00.972+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:41:03.155+0000] {processor.py:925} INFO - DAG(s) 'forex_ml_pipeline' retrieved from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:41:03.342+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:41:03.342+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T07:41:03.363+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:41:03.362+0000] {dag.py:4180} INFO - Setting next_dagrun for forex_ml_pipeline to 2025-03-02 12:00:00+00:00, run_after=2025-03-09 12:00:00+00:00
+[2025-03-06T07:41:03.384+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/forex_ml_pipeline.py took 2.422 seconds
+[2025-03-06T07:41:33.588+0000] {processor.py:186} INFO - Started process (PID=202) to work on /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:41:33.590+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/forex_ml_pipeline.py for tasks to queue
+[2025-03-06T07:41:33.595+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:41:33.594+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:41:34.182+0000] {processor.py:925} INFO - DAG(s) 'forex_ml_pipeline' retrieved from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:41:34.278+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:41:34.278+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T07:41:34.303+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:41:34.303+0000] {dag.py:4180} INFO - Setting next_dagrun for forex_ml_pipeline to 2025-03-02 12:00:00+00:00, run_after=2025-03-09 12:00:00+00:00
+[2025-03-06T07:41:34.327+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/forex_ml_pipeline.py took 0.751 seconds
+[2025-03-06T07:42:04.733+0000] {processor.py:186} INFO - Started process (PID=214) to work on /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:42:04.734+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/forex_ml_pipeline.py for tasks to queue
+[2025-03-06T07:42:04.736+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:42:04.736+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:42:05.444+0000] {processor.py:925} INFO - DAG(s) 'forex_ml_pipeline' retrieved from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:42:05.536+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:42:05.536+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T07:42:05.553+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:42:05.553+0000] {dag.py:4180} INFO - Setting next_dagrun for forex_ml_pipeline to 2025-03-02 12:00:00+00:00, run_after=2025-03-09 12:00:00+00:00
+[2025-03-06T07:42:05.573+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/forex_ml_pipeline.py took 0.845 seconds
+[2025-03-06T07:42:36.222+0000] {processor.py:186} INFO - Started process (PID=226) to work on /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:42:36.223+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/forex_ml_pipeline.py for tasks to queue
+[2025-03-06T07:42:36.225+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:42:36.225+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:42:36.831+0000] {processor.py:925} INFO - DAG(s) 'forex_ml_pipeline' retrieved from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:42:36.908+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:42:36.907+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T07:42:36.922+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:42:36.922+0000] {dag.py:4180} INFO - Setting next_dagrun for forex_ml_pipeline to 2025-03-02 12:00:00+00:00, run_after=2025-03-09 12:00:00+00:00
+[2025-03-06T07:42:36.945+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/forex_ml_pipeline.py took 0.727 seconds
+[2025-03-06T07:43:07.686+0000] {processor.py:186} INFO - Started process (PID=238) to work on /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:43:07.687+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/forex_ml_pipeline.py for tasks to queue
+[2025-03-06T07:43:07.689+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:43:07.689+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:43:08.168+0000] {processor.py:925} INFO - DAG(s) 'forex_ml_pipeline' retrieved from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:43:08.249+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:43:08.249+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T07:43:08.269+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:43:08.268+0000] {dag.py:4180} INFO - Setting next_dagrun for forex_ml_pipeline to 2025-03-02 12:00:00+00:00, run_after=2025-03-09 12:00:00+00:00
+[2025-03-06T07:43:08.297+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/forex_ml_pipeline.py took 0.616 seconds
+[2025-03-06T07:43:38.889+0000] {processor.py:186} INFO - Started process (PID=250) to work on /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:43:38.890+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/forex_ml_pipeline.py for tasks to queue
+[2025-03-06T07:43:38.893+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:43:38.892+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:43:39.386+0000] {processor.py:925} INFO - DAG(s) 'forex_ml_pipeline' retrieved from /opt/airflow/dags/forex_ml_pipeline.py
+[2025-03-06T07:43:39.461+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:43:39.461+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T07:43:39.477+0000] {logging_mixin.py:190} INFO - [2025-03-06T07:43:39.477+0000] {dag.py:4180} INFO - Setting next_dagrun for forex_ml_pipeline to 2025-03-02 12:00:00+00:00, run_after=2025-03-09 12:00:00+00:00
+[2025-03-06T07:43:39.500+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/forex_ml_pipeline.py took 0.619 seconds

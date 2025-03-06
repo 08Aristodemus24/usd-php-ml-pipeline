@@ -31,7 +31,8 @@ to solve this we need to install a linux runtime environment in order to use air
 * `docker image rm <id or name of image>`
 * `docker run -p <unused port like 80 in local machine>:<unused port in container like 80> -it <image name or id>`
 * to echo ocntents of file in bash terminal run `cat <name of file>.<file ext>`
-* we could also enter an images container to run bash commands and see what files are in the container e.g. `docker run -it <image name or id> bash`   
+* we could also enter an images container to run bash commands and see what files are in the container e.g. `docker run -it <image name or id> bash`
+* to use `make` commands you need to have g++/gcc compilers installed
 
 
 # Tools that I might use:
