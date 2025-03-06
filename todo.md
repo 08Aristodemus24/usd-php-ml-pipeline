@@ -4918,3 +4918,54 @@ spark_inject_parent_job_info = False
 ```
 
 what we can do is copy the contents of this configuration file by entering again the container via docker `exec -it <container name or id> bash` and then once in current working directory which will be by default `/opt/airflow$` we can use `cat airflow.cfg` or `airflow config list --defaults` to print out the contents of the `airflow.cfg` and subsequently copy it for our use later on. Because we will override this default `airflow.cfg` file by creating another `airflow.cfg` file inside our local directories `config` folder 
+
+```
+...
+
+[secrets]
+# Full class name of secrets backend to enable (will precede env vars and metastore in search path)
+#
+# Example: backend = airflow.providers.amazon.aws.secrets.systems_manager.SystemsManagerParameterStoreBackend
+#
+# Variable: AIRFLOW__SECRETS__BACKEND
+#
+backend =
+
+# The backend_kwargs param is loaded into a dictionary and passed to ``__init__``
+# of secrets backend class. See documentation for the secrets backend you are using.
+# JSON is expected.
+#
+# Example for AWS Systems Manager ParameterStore:
+# ``{"connections_prefix": "/airflow/connections", "profile_name": "default"}``
+#
+# Variable: AIRFLOW__SECRETS__BACKEND_KWARGS
+#
+backend_kwargs =
+
+# .. note:: |experimental|
+#
+# Enables local caching of Variables, when parsing DAGs only.
+# Using this option can make dag parsing faster if Variables are used in top level code, at the expense
+# of longer propagation time for changes.
+# Please note that this cache concerns only the DAG parsing step. There is no caching in place when DAG
+# tasks are run.
+#
+# Variable: AIRFLOW__SECRETS__USE_CACHE
+#
+use_cache = False
+
+# .. note:: |experimental|
+#
+# When the cache is enabled, this is the duration for which we consider an entry in the cache to be
+# valid. Entries are refreshed if they are older than this many seconds.
+# It means that when the cache is enabled, this is the maximum amount of time you need to wait to see a
+# Variable change take effect.
+#
+# Variable: AIRFLOW__SECRETS__CACHE_TTL_SECONDS
+#
+cache_ttl_seconds = 900
+
+polygon_api_key = <your api key>
+
+...
+```

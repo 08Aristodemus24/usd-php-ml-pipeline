@@ -1,40 +1,19 @@
-[2025-03-03T08:53:21.365+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
-[2025-03-03T08:53:21.380+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket scheduled__2025-02-23T12:00:00+00:00 [queued]>
-[2025-03-03T08:53:21.387+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket scheduled__2025-02-23T12:00:00+00:00 [queued]>
-[2025-03-03T08:53:21.389+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
-[2025-03-03T08:53:21.402+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): create_s3_bucket> on 2025-02-23 12:00:00+00:00
-[2025-03-03T08:53:21.411+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'forex_ml_pipeline', 'create_s3_bucket', 'scheduled__2025-02-23T12:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/forex_ml_pipeline.py', '--cfg-path', '/tmp/tmppbwmbzmw']
-[2025-03-03T08:53:21.413+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask create_s3_bucket
-[2025-03-03T08:53:21.413+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=517) is multi-threaded, use of fork() may lead to deadlocks in the child.
-[2025-03-03T08:53:21.414+0000] {standard_task_runner.py:72} INFO - Started process 520 to run task
-[2025-03-03T08:53:21.459+0000] {task_command.py:467} INFO - Running <TaskInstance: forex_ml_pipeline.create_s3_bucket scheduled__2025-02-23T12:00:00+00:00 [running]> on host 359f679f6c32
-[2025-03-03T08:53:21.531+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mikhail' AIRFLOW_CTX_DAG_ID='forex_ml_pipeline' AIRFLOW_CTX_TASK_ID='create_s3_bucket' AIRFLOW_CTX_EXECUTION_DATE='2025-02-23T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-23T12:00:00+00:00'
-[2025-03-03T08:53:21.532+0000] {taskinstance.py:732} INFO - ::endgroup::
-[2025-03-03T08:53:21.573+0000] {base.py:84} INFO - Retrieving connection 'my_s3_conn'
-[2025-03-03T08:53:21.574+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='my_s3_conn', conn_type='aws') credentials retrieved from extra.
-[2025-03-03T08:53:24.420+0000] {logging_mixin.py:190} INFO - Bucket 'usd-php-ml-pipeline-bucket' created successfully.
-[2025-03-03T08:53:24.422+0000] {python.py:240} INFO - Done. Returned value was: None
-[2025-03-03T08:53:24.430+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
-[2025-03-03T08:53:24.431+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=forex_ml_pipeline, task_id=create_s3_bucket, run_id=scheduled__2025-02-23T12:00:00+00:00, execution_date=20250223T120000, start_date=20250303T085321, end_date=20250303T085324
-[2025-03-03T08:53:24.487+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
-[2025-03-03T08:53:24.511+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
-[2025-03-03T08:53:24.516+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
-[2025-03-06T05:50:42.006+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
-[2025-03-06T05:50:42.025+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket scheduled__2025-02-23T12:00:00+00:00 [queued]>
-[2025-03-06T05:50:42.037+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket scheduled__2025-02-23T12:00:00+00:00 [queued]>
-[2025-03-06T05:50:42.038+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
-[2025-03-06T05:50:42.060+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): create_s3_bucket> on 2025-02-23 12:00:00+00:00
-[2025-03-06T05:50:42.071+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'forex_ml_pipeline', 'create_s3_bucket', 'scheduled__2025-02-23T12:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/forex_ml_pipeline.py', '--cfg-path', '/tmp/tmp6mc0cmwj']
-[2025-03-06T05:50:42.075+0000] {standard_task_runner.py:105} INFO - Job 26: Subtask create_s3_bucket
-[2025-03-06T05:50:42.075+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=244) is multi-threaded, use of fork() may lead to deadlocks in the child.
-[2025-03-06T05:50:42.076+0000] {standard_task_runner.py:72} INFO - Started process 250 to run task
-[2025-03-06T05:50:42.133+0000] {task_command.py:467} INFO - Running <TaskInstance: forex_ml_pipeline.create_s3_bucket scheduled__2025-02-23T12:00:00+00:00 [running]> on host ce0615f37630
-[2025-03-06T05:50:42.226+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mikhail' AIRFLOW_CTX_DAG_ID='forex_ml_pipeline' AIRFLOW_CTX_TASK_ID='create_s3_bucket' AIRFLOW_CTX_EXECUTION_DATE='2025-02-23T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-23T12:00:00+00:00'
-[2025-03-06T05:50:42.228+0000] {taskinstance.py:732} INFO - ::endgroup::
-[2025-03-06T05:50:42.261+0000] {base.py:84} INFO - Retrieving connection 'my_s3_conn'
-[2025-03-06T05:50:42.262+0000] {connection_wrapper.py:325} INFO - AWS Connection (conn_id='my_s3_conn', conn_type='aws') credentials retrieved from login and password.
-[2025-03-06T05:50:44.636+0000] {logging_mixin.py:190} INFO - Error creating bucket: An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.
-[2025-03-06T05:50:44.639+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+[2025-03-06T05:54:50.117+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-06T05:54:50.130+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket manual__2025-03-06T05:50:40.902103+00:00 [queued]>
+[2025-03-06T05:54:50.136+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket manual__2025-03-06T05:50:40.902103+00:00 [queued]>
+[2025-03-06T05:54:50.137+0000] {taskinstance.py:2867} INFO - Starting attempt 3 of 4
+[2025-03-06T05:54:50.149+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): create_s3_bucket> on 2025-03-06 05:50:40.902103+00:00
+[2025-03-06T05:54:50.156+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'forex_ml_pipeline', 'create_s3_bucket', 'manual__2025-03-06T05:50:40.902103+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/forex_ml_pipeline.py', '--cfg-path', '/tmp/tmpaa0k1y3z']
+[2025-03-06T05:54:50.160+0000] {standard_task_runner.py:105} INFO - Job 31: Subtask create_s3_bucket
+[2025-03-06T05:54:50.161+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=364) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-06T05:54:50.162+0000] {standard_task_runner.py:72} INFO - Started process 367 to run task
+[2025-03-06T05:54:50.207+0000] {task_command.py:467} INFO - Running <TaskInstance: forex_ml_pipeline.create_s3_bucket manual__2025-03-06T05:50:40.902103+00:00 [running]> on host ce0615f37630
+[2025-03-06T05:54:50.279+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mikhail' AIRFLOW_CTX_DAG_ID='forex_ml_pipeline' AIRFLOW_CTX_TASK_ID='create_s3_bucket' AIRFLOW_CTX_EXECUTION_DATE='2025-03-06T05:50:40.902103+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-06T05:50:40.902103+00:00'
+[2025-03-06T05:54:50.284+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-06T05:54:50.303+0000] {base.py:84} INFO - Retrieving connection 'my_s3_conn'
+[2025-03-06T05:54:50.305+0000] {connection_wrapper.py:325} INFO - AWS Connection (conn_id='my_s3_conn', conn_type='aws') credentials retrieved from login and password.
+[2025-03-06T05:54:52.546+0000] {logging_mixin.py:190} INFO - Error creating bucket: An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.
+[2025-03-06T05:54:52.547+0000] {taskinstance.py:3313} ERROR - Task failed with exception
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
     result = _execute_callable(context=context, **execute_callable_kwargs)
@@ -71,9 +50,9 @@ Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1023, in _make_api_call
     raise error_class(parsed_response, operation_name)
 botocore.exceptions.ClientError: An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.
-[2025-03-06T05:50:44.658+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=forex_ml_pipeline, task_id=create_s3_bucket, run_id=scheduled__2025-02-23T12:00:00+00:00, execution_date=20250223T120000, start_date=20250306T055042, end_date=20250306T055044
-[2025-03-06T05:50:44.687+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
-[2025-03-06T05:50:44.689+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 26 for task create_s3_bucket (An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.; 250)
+[2025-03-06T05:54:52.558+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=forex_ml_pipeline, task_id=create_s3_bucket, run_id=manual__2025-03-06T05:50:40.902103+00:00, execution_date=20250306T055040, start_date=20250306T055450, end_date=20250306T055452
+[2025-03-06T05:54:52.584+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-06T05:54:52.585+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 31 for task create_s3_bucket (An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.; 367)
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
     ret = args.func(args, dag=self.dag)
@@ -142,6 +121,6 @@ Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1023, in _make_api_call
     raise error_class(parsed_response, operation_name)
 botocore.exceptions.ClientError: An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.
-[2025-03-06T05:50:44.738+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
-[2025-03-06T05:50:44.761+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
-[2025-03-06T05:50:44.766+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-06T05:54:52.626+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-06T05:54:52.645+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-06T05:54:52.649+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

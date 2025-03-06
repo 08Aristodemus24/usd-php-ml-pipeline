@@ -37,15 +37,15 @@ def get_env_vars(ti):
     push api key to xcom so that pull_forex_data can access
     this xcom
     """
-    api_key = os.environ.get("AIRFLOW_POLYGON_API_KEY")
+    api_key = conf.get('secrets', 'polygon_api_key')
 
     ti.xcom_push(key="api_key", value=api_key)
 
 # get airflow folder
-airflow_home = conf.get('core', 'dags_folder')
+AIRFLOW_HOME = conf.get('core', 'dags_folder')
 
 # base dir would be /opt/***/ or /opt/airflow
-BASE_DIR = Path(airflow_home).resolve().parent
+BASE_DIR = Path(AIRFLOW_HOME).resolve().parent
 
 # data dir once joined with base dir would be /opt/airflow/include/data/
 DATA_DIR = os.path.join(BASE_DIR, 'include/data')
@@ -75,41 +75,41 @@ with DAG(
         python_callable=get_env_vars
     )
 
-    # create_s3_bucket_task = PythonOperator(
-    #     task_id='create_s3_bucket',
-    #     python_callable=create_s3_bucket,
-    #     op_kwargs={
-    #         'region': 'us-east-2',
-    #         'bucket_name': BUCKET_NAME,
-    #     }
-    # )
+    create_s3_bucket_task = PythonOperator(
+        task_id='create_s3_bucket',
+        python_callable=create_s3_bucket,
+        op_kwargs={
+            'region': 'us-east-2',
+            'bucket_name': BUCKET_NAME,
+        }
+    )
     
-    # pull_forex_data_task = PythonOperator(
-    #     task_id='pull_forex_data',
-    #     # python_callable=test_pull_forex_data,
-    #     python_callable=pull_forex_data,
-    #     op_kwargs={
-    #         "start_date": "january 1 2024",
-    #         "end_date": "january 1 2025",
-    #         "ticker": "C:USDPHP",
-    #         "multiplier": 4,
-    #         "timespan": "hour",
-    #         "formatter": reformat_date,
-    #         "bucket_name": BUCKET_NAME
-    #         # "save_path": DATA_DIR
-    #     }
-    # )
+    pull_forex_data_task = PythonOperator(
+        task_id='pull_forex_data',
+        # python_callable=test_pull_forex_data,
+        python_callable=pull_forex_data,
+        op_kwargs={
+            "start_date": "january 1 2024",
+            "end_date": "january 1 2025",
+            "ticker": "C:USDPHP",
+            "multiplier": 4,
+            "timespan": "hour",
+            "formatter": reformat_date,
+            "bucket_name": BUCKET_NAME
+            # "save_path": DATA_DIR
+        }
+    )
     
-    # transform_forex_data_task = SparkSubmitOperator(
-    #     task_id='transform_forex_data',
-    #     conn_id='my_spark_conn',
-    #     application='./dags/operators/transform_forex_data.py',
+    transform_forex_data_task = SparkSubmitOperator(
+        task_id='transform_forex_data',
+        conn_id='my_spark_conn',
+        application='./dags/operators/transform_forex_data.py',
 
-    #     # pass argument vector to spark submit job operator since
-    #     # it is a file that runs like a script
-    #     application_args=["{{ti.xcom_pull(key='new_file_path', task_ids='pull_forex_data')}}"],
-    #     # application_args=["{{ti.xcom_pull(key='file_path', task_ids='pull_forex_data')}}"],
-    #     verbose=True
-    # )
+        # pass argument vector to spark submit job operator since
+        # it is a file that runs like a script
+        application_args=["{{ti.xcom_pull(key='new_file_path', task_ids='pull_forex_data')}}"],
+        # application_args=["{{ti.xcom_pull(key='file_path', task_ids='pull_forex_data')}}"],
+        verbose=True
+    )
     
-    # create_s3_bucket_task >> pull_forex_data_task >> transform_forex_data_task
+    [get_env_vars_task, create_s3_bucket_task] >> pull_forex_data_task >> transform_forex_data_task
