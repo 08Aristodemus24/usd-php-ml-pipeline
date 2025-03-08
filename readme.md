@@ -33,7 +33,8 @@ to solve this we need to install a linux runtime environment in order to use air
 * to echo ocntents of file in bash terminal run `cat <name of file>.<file ext>`
 * we could also enter an images container to run bash commands and see what files are in the container e.g. `docker run -it <image name or id> bash`
 * to use `make` commands you need to have g++/gcc compilers installed
-
+* `git branch <branch name>`, `git checkout <branch name you created>`, `git add . & git commit -m "<mesage>" & git push origin <branch name you created>`
+* `git checkout master`, `git merge <branch name you created e.g. michael>`
 
 # Tools that I might use:
 * Apache Airflow - data orchestration, workflow, and manager for steps in the data pipeline
