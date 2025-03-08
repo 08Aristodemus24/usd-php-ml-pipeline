@@ -4969,3 +4969,97 @@ polygon_api_key = <your api key>
 
 ...
 ```
+
+* to setup our connections after running `docker compose up` we can include an extra command using actually a makefile that runs a command that sets up our connections automatically right after our `docker compose up` command runs 
+
+supposed we have run our containers using docker compose up we can manually do this process (to see how the makefile works under the hood) by running `docker exec -it <name or id of container> /path/to/<setup_conn_script>.<ext>` in order to run the setup connections script in the docker container directly outside from our local machine
+
+```
+(base) C:\Users\LARRY\Documents\Scripts\usd-php-ml-pipeline>docker ps
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED        STATUS                    PORTS                                            NAMES
+f211376fa71f   usd-php-ml-pipeline-airflow-triggerer   "/usr/bin/dumb-init …"   42 hours ago   Up 11 minutes (healthy)   8080/tcp                                         usd-php-ml-pipeline-airflow-triggerer-1
+d80a928d58ea   usd-php-ml-pipeline-airflow-webserver   "/usr/bin/dumb-init …"   42 hours ago   Up 11 minutes (healthy)   0.0.0.0:8080->8080/tcp                           usd-php-ml-pipeline-airflow-webserver-1
+72411855b6e9   usd-php-ml-pipeline-airflow-scheduler   "/usr/bin/dumb-init …"   42 hours ago   Up 11 minutes (healthy)   8080/tcp                                         usd-php-ml-pipeline-airflow-scheduler-1
+189b8a2cf016   bitnami/spark:latest                    "/opt/bitnami/script…"   2 days ago     Up 10 minutes                                                              usd-php-ml-pipeline-spark-worker-1
+b63c082db0a9   postgres:13                             "docker-entrypoint.s…"   2 days ago     Up 11 minutes (healthy)   5432/tcp                                         usd-php-ml-pipeline-postgres-1
+9ceee95f29c4   bitnami/spark:latest                    "/opt/bitnami/script…"   2 days ago     Up 10 minutes             0.0.0.0:7077->7077/tcp, 0.0.0.0:8081->8081/tcp   usd-php-ml-pipeline-spark-master-1
+
+(base) C:\Users\LARRY\Documents\Scripts\usd-php-ml-pipeline>docker exec -it usd-php-ml-pipeline-airflow-webserver-1 bash
+airflow@d80a928d58ea:/opt/airflow$ ls
+airflow-webserver.pid  config  dags  include  logs  plugins  webserver_config.py
+airflow@d80a928d58ea:/opt/airflow$
+```
+
+
+* next error to solve is this and possibly getting permission to use bucket by pandas and access a bucket using pyspark
+```
+[2025-03-08, 02:42:36 UTC] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/registry.py", line 246, in get_filesystem_class
+    register_implementation(protocol, _import_class(bit["class"]))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/registry.py", line 281, in _import_class
+    mod = importlib.import_module(mod)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 's3fs'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/operators/pull_forex_data.py", line 100, in pull_forex_data
+    forex_data.to_csv(file_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 3902, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1152, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 247, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/common.py", line 718, in get_handle
+    ioargs = _get_filepath_or_buffer(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/common.py", line 418, in _get_filepath_or_buffer
+    file_obj = fsspec.open(
+               ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/core.py", line 491, in open
+    out = open_files(
+          ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/core.py", line 295, in open_files
+    fs, fs_token, paths = get_fs_token_paths(
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/core.py", line 655, in get_fs_token_paths
+    chain = _un_chain(urlpath0, storage_options or {})
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/core.py", line 351, in _un_chain
+    cls = get_filesystem_class(protocol)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/registry.py", line 248, in get_filesystem_class
+    raise ImportError(bit["err"]) from e
+ImportError: Install s3fs to access S3
+```

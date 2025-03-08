@@ -91,7 +91,7 @@ with DAG(
         op_kwargs={
             "start_date": "january 1 2024",
             "end_date": "january 1 2025",
-            "ticker": "C:USDPHP",
+            "forex_ticker": "C:USDPHP",
             "multiplier": 4,
             "timespan": "hour",
             "formatter": reformat_date,

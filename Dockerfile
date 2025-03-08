@@ -22,4 +22,5 @@ RUN \
 pip install apache-airflow-providers-apache-spark \
 apache-airflow-providers-common-compat \
 apache-airflow-providers-amazon \
-pyspark 
+pyspark \
+s3fs

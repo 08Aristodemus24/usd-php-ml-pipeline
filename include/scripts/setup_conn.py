@@ -1,3 +1,5 @@
+from airflow.configuration import conf
+
 import subprocess
 import os
 
@@ -8,8 +10,9 @@ def add_airflow_connection(**kwargs):
         if not "conn_id" in key:
             key = key.replace("_", "-")
 
-            if "conn_extra" in key:
+            if "conn-extra" in key:
                 value = str(value).replace("'", '"')
+                print(type(value))
             
             # append connection key and its corresponding value
             cmd.append(f"--{key}")
@@ -38,9 +41,9 @@ if __name__ == "__main__":
             "conn_id": "my_s3_conn", 
             "conn_type": "aws", 
             "conn_extra": {
-                "aws_access_key_id": os.environ.get("AWS_ACCESS_KEY_ID"), 
-                "aws_secret_access_key": os.environ.get("AWS_SECRET_ACCESS_KEY"),
-                "region_name": os.environ.get("AWS_REGION_NAME")
+                "aws_access_key_id": conf.get("secrets", "aws_access_key_id"), 
+                "aws_secret_access_key": conf.get("secrets", "aws_secret_access_key"),
+                "region_name": conf.get("secrets", "aws_region_name")
             }
         }
     }
