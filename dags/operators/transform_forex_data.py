@@ -13,11 +13,13 @@ def transform_forex_data(file_path, access_key, secret_key):
         # how this works is basically we specify spark.jars.packages = org.apache.hadoop:hadoop-aws.3.2.0
         spark = SparkSession.builder.appName('feature-engineering') \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:3.2.0") \
-        .config("spark.hadoop.fs.s3a.access.key", access_key) \
-        .config("spark.hadoop.fs.s3a.secret.key", secret_key) \
         .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
-        .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider") \
+        .config("spark.hadoop.fs.s3a.aws.credentials.provider", "com.amazonaws.auth.DefaultAWSCredentialsProviderChain") \
         .getOrCreate()
+
+        # .config("spark.hadoop.fs.s3a.access.key", access_key) \
+        # .config("spark.hadoop.fs.s3a.secret.key", secret_key) \
+        # .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider") \
 
         # spark._jsc.hadoopConfiguration().set("fs.s3a.access.key", access_key)
         # spark._jsc.hadoopConfiguration().set("fs.s3a.secret.key", secret_key)

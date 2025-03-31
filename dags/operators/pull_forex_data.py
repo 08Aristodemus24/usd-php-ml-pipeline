@@ -49,8 +49,8 @@ def pull_forex_data(start_date,
     print(url)
     print(headers)
 
-    try:
-        while True:
+    while True:
+        try:
             response = requests.get(url, params=params, headers=headers)
             
             if response.status_code == 200:
@@ -74,19 +74,20 @@ def pull_forex_data(start_date,
                 # increment after 60 seconds
                 start += 1
 
-                
-            
             elif response.status_code == 401:
                 continue
             
-    except HTTPError as e:
-        print(f'{e} has occured.')
+        except HTTPError as e:
+            print(f'{e} has occured.')
 
-    except (ConnectTimeout, Timeout) as e:
-        print(f'{e} has occured.')
+        except (ConnectTimeout, Timeout, ConnectionError) as e:
+            print(f'{e} has occured.')
 
-    except JSONDecodeError as e:
-        print(f'error decoding json from response has occured.')
+        except JSONDecodeError as e:
+            print(f'error decoding json from response has occured.')
+
+        except Exception as e:
+            print(f'{e} has occured')
 
     # combine batches
     forex_data = pd.concat(data_batches, ignore_index=True, axis=0) if len(data_batches) > 1 else data_batches[0]

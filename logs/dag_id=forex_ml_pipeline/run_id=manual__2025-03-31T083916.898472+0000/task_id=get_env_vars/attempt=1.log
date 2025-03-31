@@ -1,0 +1,18 @@
+[2025-03-31T08:39:18.841+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-31T08:39:18.874+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: forex_ml_pipeline.get_env_vars manual__2025-03-31T08:39:16.898472+00:00 [queued]>
+[2025-03-31T08:39:18.888+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: forex_ml_pipeline.get_env_vars manual__2025-03-31T08:39:16.898472+00:00 [queued]>
+[2025-03-31T08:39:18.889+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2025-03-31T08:39:18.908+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): get_env_vars> on 2025-03-31 08:39:16.898472+00:00
+[2025-03-31T08:39:18.920+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'forex_ml_pipeline', 'get_env_vars', 'manual__2025-03-31T08:39:16.898472+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/forex_ml_pipeline.py', '--cfg-path', '/tmp/tmpzwpb8ag0']
+[2025-03-31T08:39:18.927+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask get_env_vars
+[2025-03-31T08:39:18.927+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=742) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-31T08:39:18.929+0000] {standard_task_runner.py:72} INFO - Started process 750 to run task
+[2025-03-31T08:39:19.009+0000] {task_command.py:467} INFO - Running <TaskInstance: forex_ml_pipeline.get_env_vars manual__2025-03-31T08:39:16.898472+00:00 [running]> on host dc9c3740e7ea
+[2025-03-31T08:39:19.128+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mikhail' AIRFLOW_CTX_DAG_ID='forex_ml_pipeline' AIRFLOW_CTX_TASK_ID='get_env_vars' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T08:39:16.898472+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-31T08:39:16.898472+00:00'
+[2025-03-31T08:39:19.130+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-31T08:39:19.195+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-31T08:39:19.207+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-31T08:39:19.227+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=forex_ml_pipeline, task_id=get_env_vars, run_id=manual__2025-03-31T08:39:16.898472+00:00, execution_date=20250331T083916, start_date=20250331T083918, end_date=20250331T083919
+[2025-03-31T08:39:19.314+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-31T08:39:19.353+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-31T08:39:19.359+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

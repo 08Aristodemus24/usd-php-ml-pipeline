@@ -5209,6 +5209,8 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o27.csv.
 ```
 entailing that there needs to somehow have the `org.apache.hadoop.fs.s3a.S3AFileSystem` class etc.
 
+* to see modified files in root directory use `git ls-files --modified` 
+
 # Tools that I might use:
 * Apache Airflow - data orchestration, workflow, and manager for steps in the data pipeline
 * Snowflake/Databricks - for data warehousing

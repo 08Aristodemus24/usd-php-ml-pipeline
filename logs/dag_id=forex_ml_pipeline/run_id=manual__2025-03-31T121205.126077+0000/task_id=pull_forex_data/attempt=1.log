@@ -1,0 +1,21 @@
+[2025-03-31T12:12:12.566+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-31T12:12:12.590+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: forex_ml_pipeline.pull_forex_data manual__2025-03-31T12:12:05.126077+00:00 [queued]>
+[2025-03-31T12:12:12.606+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: forex_ml_pipeline.pull_forex_data manual__2025-03-31T12:12:05.126077+00:00 [queued]>
+[2025-03-31T12:12:12.608+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2025-03-31T12:12:12.625+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): pull_forex_data> on 2025-03-31 12:12:05.126077+00:00
+[2025-03-31T12:12:12.633+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'forex_ml_pipeline', 'pull_forex_data', 'manual__2025-03-31T12:12:05.126077+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/forex_ml_pipeline.py', '--cfg-path', '/tmp/tmpfq1g09q4']
+[2025-03-31T12:12:12.636+0000] {standard_task_runner.py:105} INFO - Job 29: Subtask pull_forex_data
+[2025-03-31T12:12:12.636+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=295) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-31T12:12:12.638+0000] {standard_task_runner.py:72} INFO - Started process 297 to run task
+[2025-03-31T12:12:12.692+0000] {task_command.py:467} INFO - Running <TaskInstance: forex_ml_pipeline.pull_forex_data manual__2025-03-31T12:12:05.126077+00:00 [running]> on host a0f2afd0cca3
+[2025-03-31T12:12:12.787+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mikhail' AIRFLOW_CTX_DAG_ID='forex_ml_pipeline' AIRFLOW_CTX_TASK_ID='pull_forex_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T12:12:05.126077+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-31T12:12:05.126077+00:00'
+[2025-03-31T12:12:12.789+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-31T12:12:12.815+0000] {logging_mixin.py:190} INFO - https://api.polygon.io/v2/aggs/ticker/C:USDPHP/range/4/hour/2024-01-01/2024-01-02
+[2025-03-31T12:12:12.815+0000] {logging_mixin.py:190} INFO - {'Authorization': 'Bearer D9TH6AGRTuD3Rk38ZFvtBhjbTXrq2nHe', 'Content-Type': 'application/json'}
+[2025-03-31T12:12:14.588+0000] {logging_mixin.py:190} INFO - {'ticker': 'C:USDPHP', 'queryCount': 561, 'resultsCount': 8, 'adjusted': True, 'results': [{'v': 1, 'vw': 55.388, 'o': 55.388, 'c': 55.388, 'h': 55.388, 'l': 55.388, 't': 1704067200000, 'n': 1}, {'v': 1, 'vw': 55.388, 'o': 55.388, 'c': 55.388, 'h': 55.388, 'l': 55.388, 't': 1704139200000, 'n': 1}, {'v': 533, 'vw': 55.5054, 'o': 55.405, 'c': 55.573, 'h': 55.586, 'l': 55.242, 't': 1704153600000, 'n': 533}, {'v': 473, 'vw': 55.5836, 'o': 55.58, 'c': 55.672, 'h': 55.685, 'l': 55.445, 't': 1704168000000, 'n': 473}, {'v': 942, 'vw': 55.6157, 'o': 55.679, 'c': 55.618, 'h': 55.683, 'l': 55.505, 't': 1704182400000, 'n': 942}, {'v': 662, 'vw': 55.6114, 'o': 55.619, 'c': 55.592, 'h': 55.662, 'l': 55.48, 't': 1704196800000, 'n': 662}, {'v': 155, 'vw': 55.5755, 'o': 55.589, 'c': 55.583, 'h': 55.6, 'l': 55.48, 't': 1704211200000, 'n': 155}, {'v': 52, 'vw': 55.5663, 'o': 55.588, 'c': 55.563, 'h': 55.6, 'l': 55.48, 't': 1704225600000, 'n': 52}], 'status': 'OK', 'request_id': 'd82277cbd3a3af865a6de94293bdce6c', 'count': 8}
+[2025-03-31T12:12:14.640+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-31T12:12:14.648+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-31T12:12:14.649+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=forex_ml_pipeline, task_id=pull_forex_data, run_id=manual__2025-03-31T12:12:05.126077+00:00, execution_date=20250331T121205, start_date=20250331T121212, end_date=20250331T121214
+[2025-03-31T12:12:14.690+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-31T12:12:14.716+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-31T12:12:14.720+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,21 @@
+[2025-03-31T12:12:07.081+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-31T12:12:07.103+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket manual__2025-03-31T12:12:05.126077+00:00 [queued]>
+[2025-03-31T12:12:07.118+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: forex_ml_pipeline.create_s3_bucket manual__2025-03-31T12:12:05.126077+00:00 [queued]>
+[2025-03-31T12:12:07.120+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2025-03-31T12:12:07.141+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): create_s3_bucket> on 2025-03-31 12:12:05.126077+00:00
+[2025-03-31T12:12:07.154+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'forex_ml_pipeline', 'create_s3_bucket', 'manual__2025-03-31T12:12:05.126077+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/forex_ml_pipeline.py', '--cfg-path', '/tmp/tmp95xuan_t']
+[2025-03-31T12:12:07.158+0000] {standard_task_runner.py:105} INFO - Job 28: Subtask create_s3_bucket
+[2025-03-31T12:12:07.159+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=282) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-31T12:12:07.163+0000] {standard_task_runner.py:72} INFO - Started process 285 to run task
+[2025-03-31T12:12:07.224+0000] {task_command.py:467} INFO - Running <TaskInstance: forex_ml_pipeline.create_s3_bucket manual__2025-03-31T12:12:05.126077+00:00 [running]> on host a0f2afd0cca3
+[2025-03-31T12:12:07.341+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mikhail' AIRFLOW_CTX_DAG_ID='forex_ml_pipeline' AIRFLOW_CTX_TASK_ID='create_s3_bucket' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T12:12:05.126077+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-31T12:12:05.126077+00:00'
+[2025-03-31T12:12:07.344+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-31T12:12:07.402+0000] {base.py:84} INFO - Retrieving connection 'my_s3_conn'
+[2025-03-31T12:12:07.403+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='my_s3_conn', conn_type='aws') credentials retrieved from extra.
+[2025-03-31T12:12:11.465+0000] {logging_mixin.py:190} INFO - Bucket 'usd-php-ml-pipeline-bucket' already exists. Skipping creation.
+[2025-03-31T12:12:11.467+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-31T12:12:11.478+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-31T12:12:11.479+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=forex_ml_pipeline, task_id=create_s3_bucket, run_id=manual__2025-03-31T12:12:05.126077+00:00, execution_date=20250331T121205, start_date=20250331T121207, end_date=20250331T121211
+[2025-03-31T12:12:11.533+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-31T12:12:11.557+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-31T12:12:11.562+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

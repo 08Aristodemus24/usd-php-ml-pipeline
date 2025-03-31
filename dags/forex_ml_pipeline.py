@@ -90,8 +90,8 @@ with DAG(
         # python_callable=test_pull_forex_data,
         python_callable=pull_forex_data,
         op_kwargs={
-            "start_date": "january 1 2022",
-            "end_date": "january 1 2024",
+            "start_date": "january 1 2024",
+            "end_date": "january 2 2024",
             "forex_ticker": "C:USDPHP",
             "multiplier": 4,
             "timespan": "hour",

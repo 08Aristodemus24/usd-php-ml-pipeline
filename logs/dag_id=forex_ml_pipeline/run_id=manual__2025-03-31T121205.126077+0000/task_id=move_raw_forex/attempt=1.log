@@ -1,0 +1,25 @@
+[2025-03-31T12:12:15.753+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-31T12:12:15.774+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: forex_ml_pipeline.move_raw_forex manual__2025-03-31T12:12:05.126077+00:00 [queued]>
+[2025-03-31T12:12:15.785+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: forex_ml_pipeline.move_raw_forex manual__2025-03-31T12:12:05.126077+00:00 [queued]>
+[2025-03-31T12:12:15.786+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2025-03-31T12:12:15.801+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): move_raw_forex> on 2025-03-31 12:12:05.126077+00:00
+[2025-03-31T12:12:15.811+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'forex_ml_pipeline', 'move_raw_forex', 'manual__2025-03-31T12:12:05.126077+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/forex_ml_pipeline.py', '--cfg-path', '/tmp/tmpxi45hmdc']
+[2025-03-31T12:12:15.814+0000] {standard_task_runner.py:105} INFO - Job 30: Subtask move_raw_forex
+[2025-03-31T12:12:15.815+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=299) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-31T12:12:15.816+0000] {standard_task_runner.py:72} INFO - Started process 301 to run task
+[2025-03-31T12:12:15.865+0000] {task_command.py:467} INFO - Running <TaskInstance: forex_ml_pipeline.move_raw_forex manual__2025-03-31T12:12:05.126077+00:00 [running]> on host a0f2afd0cca3
+[2025-03-31T12:12:15.977+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mikhail' AIRFLOW_CTX_DAG_ID='forex_ml_pipeline' AIRFLOW_CTX_TASK_ID='move_raw_forex' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T12:12:05.126077+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-31T12:12:05.126077+00:00'
+[2025-03-31T12:12:15.979+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-31T12:12:15.992+0000] {logging_mixin.py:190} INFO - container local file path: /opt/***/include/data/usd_php_forex_4hour.csv
+[2025-03-31T12:12:15.993+0000] {logging_mixin.py:190} INFO - s3 file path: raw/usd_php_forex_4hour.csv
+[2025-03-31T12:12:15.994+0000] {logging_mixin.py:190} INFO - s3 raw uri: s3a://usd-php-ml-pipeline-bucket/raw/usd_php_forex_4hour.csv
+[2025-03-31T12:12:16.020+0000] {base.py:84} INFO - Retrieving connection 'my_s3_conn'
+[2025-03-31T12:12:16.022+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='my_s3_conn', conn_type='aws') credentials retrieved from extra.
+[2025-03-31T12:12:18.239+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-03-31T12:12:18.241+0000] {logging_mixin.py:190} INFO - Bucket 'usd-php-ml-pipeline-bucket' created successfully.
+[2025-03-31T12:12:18.242+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-31T12:12:18.254+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-31T12:12:18.255+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=forex_ml_pipeline, task_id=move_raw_forex, run_id=manual__2025-03-31T12:12:05.126077+00:00, execution_date=20250331T121205, start_date=20250331T121215, end_date=20250331T121218
+[2025-03-31T12:12:18.319+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-31T12:12:18.342+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-31T12:12:18.347+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
