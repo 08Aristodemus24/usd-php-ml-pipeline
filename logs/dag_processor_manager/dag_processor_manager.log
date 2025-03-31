@@ -1,0 +1,56 @@
+[2025-03-31T04:03:50.599+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-03-31T04:03:50.600+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-03-31T04:03:50.601+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-31T04:03:50.602+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-31T04:03:51.076+0000] {manager.py:824} INFO - There are 1 files in /opt/airflow/dags
+[2025-03-31T04:03:51.778+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run      Last # of DB Queries
+--------------------------------------  -----  ---------  --------  ----------  --------------  ----------  ----------------------
+/opt/airflow/dags/forex_ml_pipeline.py    190  0.06s             0           0                                                   0
+================================================================================
+[2025-03-31T04:04:21.274+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/forex_ml_pipeline.py                           1           0  2.82s           2025-03-31T04:03:54                      45
+================================================================================
+[2025-03-31T04:04:50.797+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/forex_ml_pipeline.py                           1           0  0.92s           2025-03-31T04:04:26                      34
+================================================================================
+[2025-03-31T04:05:20.370+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/forex_ml_pipeline.py                           1           0  0.84s           2025-03-31T04:04:57                      34
+================================================================================
+[2025-03-31T04:05:49.631+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/forex_ml_pipeline.py                           1           0  0.84s           2025-03-31T04:05:28                      34
+================================================================================
+[2025-03-31T04:06:18.638+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/forex_ml_pipeline.py                           1           0  0.88s           2025-03-31T04:06:14                      11
+================================================================================
+[2025-03-31T04:06:46.324+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-03-31T04:06:46.324+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-03-31T04:06:46.710+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
