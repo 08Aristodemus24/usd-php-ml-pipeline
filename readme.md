@@ -5213,7 +5213,7 @@ entailing that there needs to somehow have the `org.apache.hadoop.fs.s3a.S3AFile
 
 # Tools that I might use:
 * Apache Airflow - data orchestration, workflow, and manager for steps in the data pipeline
-* Snowflake/Databricks - for data warehousing
+* Snowflake/Databricks - for data warehousing. Pero databricks thanks to some colleagues they recommend to use databricks since apache spark din naman gagamitin ko for transformation
 * Apache Spark (PySpark)/DBT (data build tool) - for transforming the raw eeg signals into usable features
 * Amazon S3 - store raw eeg, and the transformed features
 * PyTorch - for building a forecasting model given the scraped forex signals we had maybe an LSTM-CNN architecture or something along those lines
